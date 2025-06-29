@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block body_class %}create-account{% endblock %}
+
+{% block content %}
+  <div class="auth-wrap">
+    <span class="navbar__icon">🔒</span>
+    <span class="auth-title">Secure Vault</span>
+  </div>
+
+  <section class="panel panel--frosted panel--auth">
+    <h2 class="panel__title">Create Account</h2>
+    <form method="post" class="form">
+      <div class="input-icon">
+        <svg width="20" height="20" viewBox="0 0 16 16">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          <path fill-rule="evenodd"
+                d="M14 14s-1-1.5-6-1.5S2 14 2 14s1-4 6-4 6 4 6 4z"/>
+        </svg>
+        <input name="username"
+               placeholder="Username"
+               required
+               class="form__input">
+      </div>
+
+      <div class="input-icon">
+        <svg width="20" height="20" viewBox="0 0 16 16">
+          <path d="M8 1a3 3 0 0 0-3 3v3h6V4a3 3 0 0 0-3-3z"/>
+          <path fill-rule="evenodd" d="M3 8h10v6H3V8z"/>
+        </svg>
+        <input type="password"
+               name="password"
+               placeholder="Password"
+               required
+               class="form__input">
+      </div>
+
+      <div class="form__group checkbox">
+        <input type="checkbox" id="remember">
+        <label for="remember">Remember me</label>
+      </div>
+
+      <button type="submit" class="form__button form__button-auth">Sign Up</button>
+    </form>
+  </section>
+{% endblock %}

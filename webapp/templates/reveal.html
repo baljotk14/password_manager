@@ -1,0 +1,21 @@
+{# templates/reveal.html #}
+{% extends "layout.html" %}
+{% block content %}
+  <section class="panel panel--frosted">
+    <h1 class="panel__title">Unlock Entry #{{ idx }}</h1>
+    <p>Enter your master password to view that credential.</p>
+    <form method="post"
+          action="{{ url_for('reveal_unlock', idx=idx) }}"
+          class="form">
+      <input type="password"
+             name="master_pw"
+             placeholder="Master password"
+             required
+             class="form__input">
+      <button type="submit" class="form__button">Unlock</button>
+    </form>
+    <p class="form__footer">
+      <a href="{{ url_for('vault_list') }}">Cancel</a>
+    </p>
+  </section>
+{% endblock %}

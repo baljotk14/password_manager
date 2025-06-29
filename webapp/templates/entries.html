@@ -1,0 +1,25 @@
+{# webapp/templates/entries.html #}
+{% extends "layout.html" %}
+
+{# give the <body> a “vault” class so the vault.png bg rule applies #}
+{% block body_class %}vault{% endblock %}
+
+{% block content %}
+  <section class="panel panel--dark">
+    <h1 class="panel__title">Your Vault</h1>
+    <p class="form__footer">
+      <a href="{{ url_for('vault_add') }}">+ Add new credentials</a>
+    </p>
+    <ul class="vault-list">
+      {% for e in entries %}
+        <li class="vault-list__item">
+          <span>{{ e.service }}</span>
+          <a href="{{ url_for('reveal_form', idx=loop.index0) }}"
+             class="vault-list__btn">Reveal</a>
+        </li>
+      {% else %}
+        <li class="vault-list__empty">No entries yet</li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}
